@@ -1,0 +1,52 @@
+[project]
+name = "k8s-connector"
+version = "1.0"
+requires-python = ">=3.11"
+dependencies = [
+    "common-libs[container]@git+https://github.com/yugokato/common-libs",
+    "dateparser==1.2.0"
+]
+readme = "README.md"
+
+[project.optional-dependencies]
+dev = [
+    "autoflake==2.3.1",
+    "black==23.12.1",
+    "isort==5.13.2",
+    "pre-commit==3.7.1",
+    "ruff==0.6.9"
+]
+
+[build-system]
+requires = ["setuptools >= 61.0", "setuptools-scm>=8.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.isort]
+line_length = 120
+multi_line_output = 3
+include_trailing_comma = true
+profile = "black"
+
+[tool.black]
+line_length = 120
+
+[tool.ruff]
+line-length = 120
+indent-width = 4
+
+[tool.ruff.lint]
+select = [
+    # pycodestyle
+    "E",
+    # Pyflakes
+    "F",
+    # pyupgrade
+    "UP",
+]
+ignore = ["E731", "E741", "F403"]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401"]
