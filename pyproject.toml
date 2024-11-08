@@ -1,37 +1,40 @@
+[build-system]
+requires = ["setuptools >= 64.0", "setuptools-scm>=8.0"]
+build-backend = "setuptools.build_meta"
+
+
 [project]
 name = "k8s-connector"
-version = "1.0"
+description = "Programmatically access your Google Kubernetes Engine (GKE) cluster from your local environment"
+readme = "README.md"
+license = {file="LICENSE"}
+authors = [
+  { name = "Yugo Kato", email =  "yugokato.o@gmail.com" },
+]
 requires-python = ">=3.11"
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Software Development :: Quality Assurance",
+  "Topic :: Software Development :: Testing",
+]
 dependencies = [
     "common-libs[container]@git+https://github.com/yugokato/common-libs",
     "dateparser==1.2.0"
 ]
-readme = "README.md"
+dynamic = ["version"]
 
 [project.optional-dependencies]
-dev = [
-    "autoflake==2.3.1",
-    "black==23.12.1",
-    "isort==5.13.2",
-    "pre-commit==3.7.1",
-    "ruff==0.7.1"
-]
+dev = ["common-libs[dev]"]
 
-[build-system]
-requires = ["setuptools >= 61.0", "setuptools-scm>=8.0"]
-build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
 where = ["src"]
-
-[tool.isort]
-line_length = 120
-multi_line_output = 3
-include_trailing_comma = true
-profile = "black"
-
-[tool.black]
-line_length = 120
 
 [tool.ruff]
 line-length = 120
@@ -39,12 +42,10 @@ indent-width = 4
 
 [tool.ruff.lint]
 select = [
-    # pycodestyle
-    "E",
-    # Pyflakes
-    "F",
-    # pyupgrade
-    "UP",
+    "E",    # pycodestyle
+    "F",    # Pyflakes
+    "I",    # isort
+    "UP",   # pyupgrade
 ]
 ignore = ["E731", "E741", "F403"]
 

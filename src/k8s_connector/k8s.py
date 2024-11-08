@@ -527,6 +527,7 @@ class K8sConnectorWithAppContext(K8sConnector):
         super().__init__(
             service_account_file_path=k8s_container.service_account_file_path,
             cluster_name=k8s_container.cluster_name,
+            region=k8s_container.region,
             zone=k8s_container.zone,
             run=False,
             timeout=k8s_container.timeout,

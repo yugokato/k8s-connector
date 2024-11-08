@@ -1,7 +1,8 @@
 K8s Connector
 ======================
 [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/yugokato/k8s-connector/main.svg)](https://results.pre-commit.ci/latest/github/yugokato/k8s-connector/main)
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![Code style ruff](https://img.shields.io/badge/code%20style-ruff-000000.svg)](https://docs.astral.sh/ruff/)
+
 
 The "K8s Connector" allows you to programmatically access your Google Kubernetes Engine (GKE) cluster from your local environment. It leverages the [google/cloud-sdk](https://hub.docker.com/r/google/cloud-sdk/) docker image and provides a container class with a range of functions that utilize `kubectl` commands.
 
