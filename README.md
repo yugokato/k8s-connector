@@ -114,7 +114,7 @@ app1-c44949f4ba-gjepp   3/3     Running   0          3d5h
 [2024-01-01T00:00:00.000000+00:00] [ERROR]{7e6f3618-2ec5-4fe5-ae93-4aaa387f3263}[app1.api.bar] - bar
 ...
 
-# Get environmental variables set as a configmap
+# Get environment variables set as a configmap
 >>> configmap_data = k8s.app1.get_configmap_data()
 2024-01-01T00:00:00.000-0000 - Executing command: sh -c 'kubectl get configmap -l app=app1 -n example -o json | jq '"'"'.items[] | select(.kind == "ConfigMap") | .data'"'"''
 2024-01-01T00:00:00.609-0000 - output:
