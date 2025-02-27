@@ -106,8 +106,8 @@ class K8sConnector(GCloudSDKContainer):
         self,
         service_account_file_path: Path | str,
         cluster_name: str,
-        region: str = None,
-        zone: str = None,
+        region: str | None = None,
+        zone: str | None = None,
         app_label_selector_key: str = "app",
         run: bool = True,
         timeout: int = 60,
@@ -220,7 +220,7 @@ class K8sConnector(GCloudSDKContainer):
             return output
 
     @requires_container
-    def describe_pods(self, pod_name: str = None, **kwargs) -> str:
+    def describe_pods(self, pod_name: str | None = None, **kwargs) -> str:
         """Get output of 'kubectl describe pods' command for the current app
 
         :param pod_name: Pod name
@@ -240,20 +240,20 @@ class K8sConnector(GCloudSDKContainer):
     @requires_container
     def get_logs(
         self,
-        pod: str = None,
-        container: str = None,
+        pod: str | None = None,
+        container: str | None = None,
         follow: bool = False,
-        limit_bytes: int = None,
+        limit_bytes: int | None = None,
         previous: bool = False,
         since: str = "30s",
-        since_time: str = None,
+        since_time: str | None = None,
         tail: int = -1,
         timestamps: bool = False,
         remove_color: bool = True,
         raw: bool = False,
-        filters: dict[str, Any] = None,
+        filters: dict[str, Any] | None = None,
         **kwargs,
-    ) -> str:
+    ) -> str | None:
         """Get output of 'kubectl logs' command for the current app, or stream logs.
 
         NOTE: since_time value will be parsed with dateparser library to support various format.
