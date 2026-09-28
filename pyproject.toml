@@ -28,7 +28,7 @@ classifiers = [
 dynamic = ["version"]
 dependencies = [
     "common-libs[container]@git+https://github.com/yugokato/common-libs",
-    "dateparser==1.2.0"
+    "dateparser==1.4.3"
 ]
 
 [dependency-groups]
