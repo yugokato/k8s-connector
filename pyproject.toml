@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools >= 64.0", "setuptools-scm>=8.0"]
+requires = ["setuptools>=69.0.0", "setuptools-scm>=8.0"]
 build-backend = "setuptools.build_meta"
 
 
@@ -43,6 +43,9 @@ required-version = ">=0.12.5"
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.setuptools.package-data]
+cfg = ["*"]
 
 [tool.ruff]
 line-length = 120
