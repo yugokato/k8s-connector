@@ -9,9 +9,6 @@ formatters:
     class: common_libs.logging.LogFormatter
     format: "%(asctime)s - %(message)s"
     datefmt: "%Y-%m-%dT%H:%M:%S.%f%z"
-filters:
-  context_filter:
-    "()": common_libs.logging.LogFilter
 loggers:
   k8s_connector:
     level: DEBUG
